@@ -10,6 +10,8 @@ import Foundation
 final class AuthManager {
   static let shared = AuthManager()
   
+  private var refreshingToken = false
+  
   struct Constants {
     static let clientID = "3845809d18494474b93c20f76014749f"
     static let clientSecret = "0cc4e89a2a484795baa42200b6adc82a"
@@ -112,11 +114,39 @@ final class AuthManager {
     task.resume()
   }
   
+  private var onRefreshBlocks = [((String) -> Void)]()
+  
+  /// Supplies valid token to be used with API Calls
+  public func withValidToken(completion: @escaping (String) -> Void) {
+    guard !refreshingToken else {
+      // Append the completion
+      onRefreshBlocks.append(completion)
+      return
+    }
+    
+    
+    if shouldRefreshToken {
+      // Refresh
+      refreshIfNeeded { [weak self] success in
+        if let token = self?.accessToken, success {
+          completion(token)
+        }
+      }
+    }
+    else if let token = accessToken {
+      completion(token)
+    }
+  }
+  
   public func refreshIfNeeded(completion: @escaping (Bool) -> Void) {
-//    guard shouldRefreshToken else {
-//      completion(true)
-//      return
-//    }
+    guard !refreshingToken else {
+      return
+    }
+    
+    guard shouldRefreshToken else {
+      completion(true)
+      return
+    }
     
     guard let refreshToken = self.refreshToken else {
       return
@@ -126,6 +156,8 @@ final class AuthManager {
     guard let url = URL(string: Constants.tokenAPIURL) else {
       return
     }
+    
+    refreshingToken = true
     
     var components = URLComponents()
     components.queryItems = [
@@ -152,6 +184,7 @@ final class AuthManager {
     
     // [weak self] - don't cause a memory leak
     let task = URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
+      self?.refreshingToken = false
       guard let data = data,
       error == nil else {
         completion(false)
@@ -160,15 +193,12 @@ final class AuthManager {
       
       do {
         let result = try JSONDecoder().decode(AuthResponse.self, from: data)
-//        let json = try JSONSerialization.jsonObject(
-//          with: data,
-//          options: .allowFragments)
-        
-//        print("SUCCESS: \(json)")
-        print("Successfully refreshed")
+        self?.onRefreshBlocks.forEach  { $0(result.access_token) }
+        self?.onRefreshBlocks.removeAll()
         self?.cacheToken(result: result)
-        completion(true)
-      }
+          completion(true)
+        }
+//        print("Successfully refreshed")
       catch {
         print(error.localizedDescription)
         completion(false)
