@@ -16,12 +16,13 @@ struct UserProfile: Codable {
 //  let followers:  [String: Codable?]
   let id: String
   let product:  String
-  let images: [UserImage]
+  let images: [APIImage]
 }
 
-struct UserImage: Codable {
-  let url: String
-}
+// create one model for that, 'cause it will be used somewhere else. now it's called "APIImage".
+//struct UserImage: Codable {
+//  let url: String
+//}
 
 
 //{
