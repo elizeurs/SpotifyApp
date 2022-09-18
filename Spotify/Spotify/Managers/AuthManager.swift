@@ -50,6 +50,8 @@ final class AuthManager {
       return false
     }
     let currentDate = Date()
+    //test
+//    let fiveMinutes: TimeInterval = 14400
     let fiveMinutes: TimeInterval = 300
     return currentDate.addingTimeInterval(fiveMinutes) >= expirationDate
   }
@@ -164,12 +166,14 @@ final class AuthManager {
       URLQueryItem(name: "grant_type",
                    value: "refresh_token"),
       URLQueryItem(name: "refresh_token",
-                   value: "refreshToken")
+//                   value: "refreshToken")
+                   value: refreshToken),
     ]
     
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
-    request.setValue("application/x-www-form-urlencoded ", forHTTPHeaderField: "Content-Type")
+    request.setValue("application/x-www-form-urlencoded ",
+                     forHTTPHeaderField: "Content-Type")
     request.httpBody = components.query?.data(using: .utf8)
     
     let basicToken = Constants.clientID+":"+Constants.clientSecret

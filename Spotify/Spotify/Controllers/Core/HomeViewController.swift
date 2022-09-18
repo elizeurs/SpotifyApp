@@ -39,7 +39,8 @@ class HomeViewController: UIViewController {
               
             }
             
-          case .failure(let error): break
+          case .failure(let error):
+            print(error.localizedDescription)
           }
         }
     
