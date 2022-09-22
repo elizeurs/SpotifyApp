@@ -33,7 +33,7 @@ final class APICaller {
         
         do {
           let result = try JSONDecoder().decode(UserProfile.self, from: data)
-          print(result)
+//          print(result)
           completion(.success(result))
         } catch  {
           print(error.localizedDescription)
@@ -94,9 +94,9 @@ final class APICaller {
     }
   }
   
+  
 //    public func getRecommendations(genres: Set<String>, completion: @escaping ((Result<String, Error>) ->  Void)) {
   public func getRecommendations(genres: Set<String>, completion: @escaping ((Result<RecommendationsResponse, Error>) -> Void)) {
-    
     let seeds = genres.joined(separator: ",")
     createRequest(
       with: URL(string: Constants.baseAPIURL + "/recommendations?limit=40&seed_genres=\(seeds)"),
@@ -109,7 +109,7 @@ final class APICaller {
           completion(.failure(APIError.failedToGetData))
           return
         }
-        
+
         do {
           let result = try JSONDecoder().decode(RecommendationsResponse.self, from: data)
 //          let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
@@ -169,7 +169,8 @@ final class APICaller {
         return
       }
       var request = URLRequest(url: apiURL)
-      request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+      request.setValue("Bearer \(token)",
+                       forHTTPHeaderField: "Authorization")
       request.httpMethod = type.rawValue
       request.timeoutInterval = 30
       completion(request)
