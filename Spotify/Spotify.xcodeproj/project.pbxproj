@@ -29,6 +29,8 @@
 		756E7B5728CA226D008FAFA7 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E7B5628CA226D008FAFA7 /* Artist.swift */; };
 		756E7B5928CA2280008FAFA7 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E7B5828CA2280008FAFA7 /* UserProfile.swift */; };
 		756E7B5B28CAA71F008FAFA7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E7B5A28CAA71F008FAFA7 /* Extensions.swift */; };
+		758600AA28DD23FC0041A57C /* FeaturedPlaylistCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758600A928DD23FC0041A57C /* FeaturedPlaylistCellViewModel.swift */; };
+		758600AC28DD24B30041A57C /* RecommendedTrackCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758600AB28DD24B30041A57C /* RecommendedTrackCellViewModel.swift */; };
 		758D4C6A28D8C7B9004C73DF /* NewReleasesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758D4C6928D8C7B9004C73DF /* NewReleasesCellViewModel.swift */; };
 		758E29BD28D3832500A375F8 /* NewReleasesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758E29BC28D3832500A375F8 /* NewReleasesResponse.swift */; };
 		758E29BF28D3850000A375F8 /* APIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758E29BE28D3850000A375F8 /* APIImage.swift */; };
@@ -68,6 +70,8 @@
 		756E7B5628CA226D008FAFA7 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		756E7B5828CA2280008FAFA7 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		756E7B5A28CAA71F008FAFA7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		758600A928DD23FC0041A57C /* FeaturedPlaylistCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPlaylistCellViewModel.swift; sourceTree = "<group>"; };
+		758600AB28DD24B30041A57C /* RecommendedTrackCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedTrackCellViewModel.swift; sourceTree = "<group>"; };
 		758D4C6928D8C7B9004C73DF /* NewReleasesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesCellViewModel.swift; sourceTree = "<group>"; };
 		758E29BC28D3832500A375F8 /* NewReleasesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesResponse.swift; sourceTree = "<group>"; };
 		758E29BE28D3850000A375F8 /* APIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIImage.swift; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				758D4C6928D8C7B9004C73DF /* NewReleasesCellViewModel.swift */,
+				758600A928DD23FC0041A57C /* FeaturedPlaylistCellViewModel.swift */,
+				758600AB28DD24B30041A57C /* RecommendedTrackCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -365,7 +371,9 @@
 				756E7B5328CA2249008FAFA7 /* Playlist.swift in Sources */,
 				756E7B4D28CA217D008FAFA7 /* AuthManager.swift in Sources */,
 				758D4C6A28D8C7B9004C73DF /* NewReleasesCellViewModel.swift in Sources */,
+				758600AC28DD24B30041A57C /* RecommendedTrackCellViewModel.swift in Sources */,
 				756E7B4B28CA210E008FAFA7 /* SearchResultsViewController.swift in Sources */,
+				758600AA28DD23FC0041A57C /* FeaturedPlaylistCellViewModel.swift in Sources */,
 				758E29C128D3BC6500A375F8 /* FeaturedPlaylistResponse.swift in Sources */,
 				756E7B4128CA2082008FAFA7 /* WelcomeViewController.swift in Sources */,
 				756E7B4528CA20AE008FAFA7 /* ProfileViewController.swift in Sources */,
@@ -526,6 +534,7 @@
 				INFOPLIST_FILE = Spotify/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -554,6 +563,7 @@
 				INFOPLIST_FILE = Spotify/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
