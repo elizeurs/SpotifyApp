@@ -33,3 +33,27 @@ extension UIView {
     return top + height
   }
 }
+
+// static - we only want to create this once,'cause date formatters are partucularly expensive objects to create in memory over and over, so it's probably beneficial for us to just do it once and save it statically.
+extension DateFormatter {
+  static let dateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "YYYY-MM-dd"
+    return dateFormatter
+  }()
+  
+  static let displayDateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .medium
+    return dateFormatter
+  }()
+}
+
+extension String  {
+  static func formattedDate(string: String) -> String {
+    guard let date = DateFormatter.dateFormatter.date(from: string) else {
+      return string
+    }
+    return DateFormatter.displayDateFormatter.string(from: date)
+  }
+}
