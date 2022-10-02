@@ -169,8 +169,8 @@ final class APICaller {
       with: URL(string: Constants.baseAPIURL + "/recommendations?limit=40&seed_genres=\(seeds)"),
       type: .GET
     ) { request in
-            print(request.url?.absoluteString)
-            print("Starting recommendations api call...")
+//            print(request.url?.absoluteString)
+//            print("Starting recommendations api call...")
       let task = URLSession.shared.dataTask(with: request) { data, _, error in
         guard let data = data, error == nil else {
           completion(.failure(APIError.failedToGetData))
@@ -180,7 +180,7 @@ final class APICaller {
         do {
           let result = try JSONDecoder().decode(RecommendationsResponse.self, from: data)
 //          let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-          print(result)
+//          print(result)
 //          print("json: \(result)")
           completion(.success(result))
         }
@@ -198,8 +198,8 @@ final class APICaller {
       with: URL(string: Constants.baseAPIURL + "/recommendations/available-genre-seeds"),
       type: .GET
     ) { request in
-      print(request.url?.absoluteString)
-      print("Starting recommendations api call...")
+//      print(request.url?.absoluteString)
+//      print("Starting recommendations api call...")
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
               guard let data = data, error == nil else {
                 completion(.failure(APIError.failedToGetData))
@@ -218,6 +218,68 @@ final class APICaller {
             task.resume()
           }
         }
+  
+  // MARK: - Category
+  
+//  public func getCategories(completion: @escaping (Result<String, Error>) -> Void) {
+//    createRequest(
+    public func getCategories(completion: @escaping (Result<[Category], Error>) -> Void) {
+      createRequest(
+      with: URL(string: Constants.baseAPIURL + "/browse/categories?limit=50"),
+      type: .GET
+    ) { request in
+      let task = URLSession.shared.dataTask(with: request) { data, _, error in
+        guard let data = data, error == nil else {
+          completion(.failure(APIError.failedToGetData))
+          return
+          
+        }
+        
+        do {
+//          let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+//          print(json)
+          let result = try JSONDecoder().decode(AllCategoriesResponse.self,
+                                                from: data)
+//          print(result.categories.items)
+          completion(.success(result.categories.items))
+        } catch {
+//          print(error.localizedDescription)
+          completion(.failure(error))
+        }
+      }
+      task.resume()
+    }
+  }
+  
+//  public func getCategoryPlaylists(completion: @escaping (Result<[Playlist], Error>) -> Void) {
+  public func getCategoryPlaylists(category: Category, completion: @escaping (Result<[Playlist], Error>) -> Void) {
+    createRequest(
+//      with: URL(string: Constants.baseAPIURL + "/browse/categories/\("id")/?limit=2"),
+      with: URL(string: Constants.baseAPIURL + "/browse/categories/\(category.id)/playlists?limit=50"),
+      type: .GET
+    ) { request in
+      let task = URLSession.shared.dataTask(with: request) { data, _, error in
+        guard let data = data, error == nil else {
+          completion(.failure(APIError.failedToGetData))
+          return
+          
+        }
+        
+        do {
+          //          let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+          let result = try JSONDecoder().decode(CategoryPlaylistsResponse.self, from: data)
+          let playlists = result.playlists.items
+//          print(playlists)
+          completion(.success(playlists))
+//          print(result)
+        } catch {
+//          print(error.localizedDescription)
+          completion(.failure(error))
+        }
+      }
+      task.resume()
+    }
+  }
   
   // MARK: - Private
   

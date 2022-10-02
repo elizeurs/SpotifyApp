@@ -93,7 +93,7 @@ class HomeViewController: UIViewController {
     group.enter()
     group.enter()
     group.enter()
-//    print("Start fetching data")
+    print("Start fetching data")
     var newReleases: NewReleasesResponse?
     var featuredPlaylist: FeaturedPlaylistsResponse?
     var recommendations: RecommendationsResponse?
@@ -161,7 +161,7 @@ class HomeViewController: UIViewController {
             let tracks = recommendations?.tracks else {
         fatalError("Models are nil")
       }
-//      print("Configuring viewModels")
+      print("Configuring viewModels")
       self.configureModels(
         newAlbums: newAlbums,
         playlists: playlists,
