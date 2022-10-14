@@ -45,6 +45,9 @@
 		7595161E28F24D1F00F19FA3 /* PlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7595161D28F24D1F00F19FA3 /* PlayerControlsView.swift */; };
 		759F264C28E3C48D00256ED3 /* TitleHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759F264B28E3C48D00256ED3 /* TitleHeaderCollectionReusableView.swift */; };
 		75B084ED28F0F02F00DBE4C3 /* PlaybackPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B084EC28F0F02F00DBE4C3 /* PlaybackPresenter.swift */; };
+		75B0D35E28F8BB7C000E7615 /* LibraryPlaylistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D35D28F8BB7C000E7615 /* LibraryPlaylistsViewController.swift */; };
+		75B0D36128F8BC09000E7615 /* LibraryAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D36028F8BC09000E7615 /* LibraryAlbumsViewController.swift */; };
+		75B0D36328F8CC72000E7615 /* LibraryToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D36228F8CC72000E7615 /* LibraryToggleView.swift */; };
 		75B6C7C128E8AD9D00E8D42E /* AllCategoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B6C7C028E8AD9D00E8D42E /* AllCategoriesResponse.swift */; };
 		75B6C7C328E904EA00E8D42E /* CategoryCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B6C7C228E904EA00E8D42E /* CategoryCollectionViewCellViewModel.swift */; };
 		75B6DA2528EB2A8D00F3236A /* SearchResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B6DA2428EB2A8D00F3236A /* SearchResultResponse.swift */; };
@@ -106,6 +109,9 @@
 		7595161D28F24D1F00F19FA3 /* PlayerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsView.swift; sourceTree = "<group>"; };
 		759F264B28E3C48D00256ED3 /* TitleHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		75B084EC28F0F02F00DBE4C3 /* PlaybackPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackPresenter.swift; sourceTree = "<group>"; };
+		75B0D35D28F8BB7C000E7615 /* LibraryPlaylistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPlaylistsViewController.swift; sourceTree = "<group>"; };
+		75B0D36028F8BC09000E7615 /* LibraryAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAlbumsViewController.swift; sourceTree = "<group>"; };
+		75B0D36228F8CC72000E7615 /* LibraryToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryToggleView.swift; sourceTree = "<group>"; };
 		75B6C7C028E8AD9D00E8D42E /* AllCategoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCategoriesResponse.swift; sourceTree = "<group>"; };
 		75B6C7C228E904EA00E8D42E /* CategoryCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		75B6DA2428EB2A8D00F3236A /* SearchResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultResponse.swift; sourceTree = "<group>"; };
@@ -156,6 +162,7 @@
 		756E7B3D28CA204F008FAFA7 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				75B0D35F28F8BBD8000E7615 /* Library */,
 				756E7B3E28CA2068008FAFA7 /* AuthViewController.swift */,
 				756E7B4028CA2082008FAFA7 /* WelcomeViewController.swift */,
 				756E7B4228CA2093008FAFA7 /* SettingsViewController.swift */,
@@ -176,6 +183,15 @@
 				75B084EC28F0F02F00DBE4C3 /* PlaybackPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		75B0D35F28F8BBD8000E7615 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				75B0D35D28F8BB7C000E7615 /* LibraryPlaylistsViewController.swift */,
+				75B0D36028F8BC09000E7615 /* LibraryAlbumsViewController.swift */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 		75E8180528EE4D0E008454F0 /* SearchResultCells */ = {
@@ -240,6 +256,7 @@
 				75EFAC5928E50EF1008F7D97 /* AlbumTrackCollectionViewCell.swift */,
 				75C6CEF528E77106009CE171 /* CategoryCollectionViewCell.swift */,
 				7595161D28F24D1F00F19FA3 /* PlayerControlsView.swift */,
+				75B0D36228F8CC72000E7615 /* LibraryToggleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -447,6 +464,7 @@
 				75E2A90A28E0E9E1000DBA16 /* PlaylistDetailsResponse.swift in Sources */,
 				756E7B5328CA2249008FAFA7 /* Playlist.swift in Sources */,
 				75B6DA2528EB2A8D00F3236A /* SearchResultResponse.swift in Sources */,
+				75B0D36328F8CC72000E7615 /* LibraryToggleView.swift in Sources */,
 				756E7B4D28CA217D008FAFA7 /* AuthManager.swift in Sources */,
 				758D4C6A28D8C7B9004C73DF /* NewReleasesCellViewModel.swift in Sources */,
 				75080C2928E5F2DF002B5333 /* AlbumCollectionViewCellViewModel.swift in Sources */,
@@ -471,6 +489,7 @@
 				758E29BD28D3832500A375F8 /* NewReleasesResponse.swift in Sources */,
 				75DB367A28EF686E00BFB44A /* SearchResultSubtitleTableViewCell.swift in Sources */,
 				75C5BF2628D51D3800409C53 /* RecommendationsResponse.swift in Sources */,
+				75B0D36128F8BC09000E7615 /* LibraryAlbumsViewController.swift in Sources */,
 				75EFAC5A28E50EF1008F7D97 /* AlbumTrackCollectionViewCell.swift in Sources */,
 				758E29BF28D3850000A375F8 /* APIImage.swift in Sources */,
 				756E7B5528CA225E008FAFA7 /* AudioTrack.swift in Sources */,
@@ -490,6 +509,7 @@
 				7506249828E25AEA00E4DC89 /* PlaylistHeaderViewModel.swift in Sources */,
 				75368F6528CFD83700632A36 /* SettingsModels.swift in Sources */,
 				756E7B4928CA20EA008FAFA7 /* PlaylistViewController.swift in Sources */,
+				75B0D35E28F8BB7C000E7615 /* LibraryPlaylistsViewController.swift in Sources */,
 				75F24F4A28C9589400E3D89E /* SceneDelegate.swift in Sources */,
 				75531DE328DE7CF200C0407F /* AlbumDetailsResponse.swift in Sources */,
 				756E7B4728CA20CE008FAFA7 /* PlayerViewController.swift in Sources */,
