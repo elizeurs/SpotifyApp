@@ -15,3 +15,19 @@ struct Playlist: Codable {
   let name: String
   let owner: User
 }
+
+
+
+
+// from: public func getCurrentUserPlaylists(completion: @escaping (Result<[Playlist], Error>) -> Void) {
+//{
+//    href = "https://api.spotify.com/v1/users/22yjizc4q72lq5tbwjezegz2i/playlists?offset=0&limit=50";
+//    items =     (
+//    );
+//    limit = 50;
+//    next = "<null>";
+//    offset = 0;
+//    previous = "<null>";
+//    total = 0;
+//}
+
