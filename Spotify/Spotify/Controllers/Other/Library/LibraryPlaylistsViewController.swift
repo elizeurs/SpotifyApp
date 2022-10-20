@@ -30,6 +30,14 @@ class LibraryPlaylistsViewController: UIViewController {
     view.addSubview(tableView)
     setUpNoPlaylistsView()
     fetchData()
+    
+    if selectionHandler != nil {
+      navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(didTapClose))
+    }
+  }
+  
+  @objc func didTapClose() {
+    dismiss(animated: true, completion: nil)
   }
   
   override func viewDidLayoutSubviews() {
@@ -152,6 +160,7 @@ extension LibraryPlaylistsViewController: UITableViewDelegate, UITableViewDataSo
     
     let vc = PlaylistViewController(playlist: playlist)
     vc.navigationItem.largeTitleDisplayMode = .never
+    vc.isOwner = true
     navigationController?.pushViewController(vc, animated: true)
   }
   
